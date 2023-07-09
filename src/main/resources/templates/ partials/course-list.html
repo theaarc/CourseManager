@@ -1,0 +1,8 @@
+<ul>
+  <!-- Iterate over the courses and display the course details -->
+  <th:block th:each="course : ${courses}">
+    <li>
+      <a th:href="@{/courses/{id}(id=${course.id})}" th:text="${course.title}"></a>
+    </li>
+  </th:block>
+</ul>

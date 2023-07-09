@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Display the list of documents -->
+  <table>
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="document : ${documents}">
+      <td th:text="${document.title}"></td>
+      <td>
+        <a th:href="@{/documents/course/{courseId}(courseId=${document.courseId})}">View</a>
+        <a th:href="@{/documents/edit/{documentId}(documentId=${document.id})}">Edit</a>
+        <form th:action="@{/documents/delete/{documentId}(documentId=${document.id})}" method="post">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a th:href="@{/documents/create}">Create Document</a>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Document Details</title>
+</head>
+<body>
+<h1>Document Details</h1>
+<h2>Title: <span th:text="${document.title}"></span></h2>
+<h2>Path: <span th:text="${document.filePath}"></span></h2>
+<a th:href="@{/documents/edit/{documentId}(documentId=${document.id})}">Edit</a>
+<form th:action="@{/documents/delete/{documentId}(documentId=${document.id})}" method="post">
+    <button type="submit">Delete</button>
+</form>
+
+</body>
+</html>
